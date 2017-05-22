@@ -1,0 +1,133 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+
+  <title>Airline Page</title>
+  <meta name="description" content="A basic form">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="css/main.css">
+  <link href='http://fonts.googleapis.com/css?family=Courgette|Roboto:400,300' rel='stylesheet' type='text/css'>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+</head>
+<body>
+  <div id="overlay"></div>
+  <div class="wrapper">
+    <header>
+      <div class="container">
+        <h1>
+          <span>Airline Company Name</span>
+        </h1>
+      </div>
+    </header>
+
+    <main>
+      <div class="card">
+        <form>
+          <div class="trip-selector">
+          <span tabindex="0">Select type of flight:</span>
+            <label>
+              <input type="radio" checked name="tType" value="0"> One Way
+            </label>
+            <label>
+              <input type="radio" name="tType" value="1"> Round Trip
+            </label>
+            <label>
+              <input type="radio" name="tType" value="2"> Multi City
+            </label>
+          </div>
+
+          <div class="container">
+            <h2>Where ya headed, mate?</h2>
+            <div class="row">
+              <label for="fName">Full Name</label>
+              <input type="text" name="fName" id="fName">
+            </div>
+
+            <div class="row">
+              <label for="address">Enter your address</label>
+              <textarea id="address" name="addressTxt"></textarea>
+            </div>
+
+            <div class="row">
+              <div class="inline-control col-1">
+                <label for="depCities">Departure</label>
+                <select id="depCities"  name="depCity">
+                  <option value="Sydney">Sydney</option>
+                  <option value="Melbourne">Melbourne</option>
+                  <option value="Brisbane">Brisbane</option>
+                  <option value="Perth">Perth</option>
+                  <option value="Adelaide">Adelaide</option>
+                </select>
+              </div>
+
+              <div class="inline-control col-1">
+                <label for="arrCities">Arrival</label>
+                <select id="arrCities" name="arrCities">
+                  <option value="Sydney">Sydney</option>
+                  <option value="Melbourne">Melbourne</option>
+                  <option value="Brisbane">Brisbane</option>
+                  <option value="Perth">Perth</option>
+                  <option value="Adelaide">Adelaide</option>
+                </select>
+              </div>
+
+              <div class="inline-control col-1">
+                <label for="dDate" tabindex="0">Depart Date</label>
+                <input value="2012-11-08" type="date" name="dDate" id="dDate" aria-labelledby="dDate">
+              </div>
+
+              <div class="inline-control col-1">
+                <label for="rDate" tabindex="0">Return Date</label>
+                <input value="2012-11-08" type="date" name="rDate" id="rDate" aria-labelledby="rDate">
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="inline-control col-2">
+                <label for="seatType">Preferred seat type</label>
+                <select name="seatType" id="seatType"  >
+                  <option value="0">No preference</option>
+                  <option value="1">Aisle seat</option>
+                  <option value="2">Window seat</option>
+                </select>
+              </div>
+
+              <div class="inline-control sign-up col-1">
+                <label>
+                  <input type="checkbox" checked name="jLetter" id="promotional" onclick="selected()"> Receive promotional offers?
+                </label>
+              </div>
+
+              <div class="inline-control submit-form col-1">
+                <button type="submit" id="submitBtn" style="display:none">Search</button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    function selected(){
+        if($('#promotional').is(':checked')){
+          $('#submitBtn').hide()
+        }else{
+          $('#submitBtn').show()
+        }
+    }
+
+    $('#submitBtn').click(function( event ) {
+      event.preventDefault();
+      $('#overlay').hide();  
+    });
+  </script>
+</body>
+
+</html>
